@@ -1,6 +1,6 @@
 {
   "name": "super-plan-mode",
-  "description": "Structured plan mode with explicit accept/build gate. Generates a rich plan artifact — with risk assessment, confidence scores, affected files, and alternatives — then halts until you approve. Works across Claude Code, Codex CLI, Cursor, Windsurf, and Aider.",
+  "description": "A universal agent skill for structured plan mode. Built natively for OpenClaw and Claude Code — generates a rich plan artifact with risk assessment, confidence scores, affected files, and alternatives, then halts at an explicit accept/build gate until you approve. Also works with Cursor, Windsurf, Codex CLI, Aider, and more.",
   "author": {
     "name": "openclaw",
     "email": "plugins@openclaw.dev"

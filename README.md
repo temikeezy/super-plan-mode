@@ -18,10 +18,13 @@
 
 **Plan first. Build with confidence.**
 
+*Built natively for [OpenClaw](https://openclaw.dev) and [Claude Code](https://claude.ai/code) · Works with Cursor, Windsurf, Codex CLI, Aider, and more.*
+
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/temikeezy/super-plan-mode)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![OpenClaw](https://img.shields.io/badge/built%20for-OpenClaw-orange.svg)](https://openclaw.dev)
-[![Works With](https://img.shields.io/badge/also%20works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf%20%7C%20Aider-purple.svg)](#-works-with)
+[![OpenClaw Native](https://img.shields.io/badge/OpenClaw-Native-orange.svg)](https://openclaw.dev)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Native-blueviolet.svg)](https://claude.ai/code)
+[![Agent Skills Standard](https://img.shields.io/badge/Agent%20Skills-Open%20Standard-brightgreen.svg)](https://agentskills.io)
 
 </div>
 
@@ -29,9 +32,9 @@
 
 ## What It Is
 
-**Super Plan Mode** is an [OpenClaw](https://openclaw.dev) skill that generates a rich implementation plan and **halts until you explicitly approve it** before writing a single line of code.
+**Super Plan Mode** is a universal agent skill that generates a rich implementation plan and **halts until you explicitly approve it** before writing a single line of code.
 
-Built natively as an [Agent Skills Open Standard](https://agentskills.io) skill for OpenClaw. Also ships as a Claude Code plugin and works with Cursor Agent, Windsurf, Codex CLI, and Aider.
+Built natively for [OpenClaw](https://openclaw.dev) and [Claude Code](https://claude.ai/code) following the [Agent Skills Open Standard](https://agentskills.io). Compatible with any AI coding agent — Cursor, Windsurf, Codex CLI, Aider, and more.
 
 No passive guardrails. No soft suggestions. A hard stop, a structured plan document, and a numbered menu waiting for your decision.
 
@@ -241,7 +244,7 @@ super-plan-mode/
 
 ## Installation
 
-### OpenClaw (native skill)
+### OpenClaw (Native — Agent Skills Open Standard)
 
 Drop `skills/super-plan-mode/` into your project's `.agents/skills/` directory:
 

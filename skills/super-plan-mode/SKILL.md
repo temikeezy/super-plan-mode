@@ -7,7 +7,7 @@ metadata:
   version: "1.0.0"
   organization: openclaw
   date: March 2026
-  abstract: Super Plan Mode is a structured planning skill that generates a rich implementation plan — with affected files, confidence-scored steps, risk matrix, effort estimate, and alternative approaches — then halts execution at a numbered acceptance gate until the user explicitly approves. Works natively in OpenClaw and compatibly across Claude Code, Codex CLI, Cursor Agent, Windsurf, and Aider.
+  abstract: A universal agent skill for structured plan mode. Built natively for OpenClaw and Claude Code. Generates a rich implementation plan — with affected files, confidence-scored steps, risk matrix, effort estimate, and alternative approaches — then halts execution at a numbered acceptance gate until the user explicitly approves. Also compatible with Cursor Agent, Windsurf, Codex CLI, Aider, and any AI coding agent.
 ---
 
 # Super Plan Mode Skill
