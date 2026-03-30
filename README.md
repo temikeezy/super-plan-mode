@@ -20,7 +20,8 @@
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/temikeezy/super-plan-mode)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Works With](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf%20%7C%20Aider-purple.svg)](#-works-with)
+[![OpenClaw](https://img.shields.io/badge/built%20for-OpenClaw-orange.svg)](https://openclaw.dev)
+[![Works With](https://img.shields.io/badge/also%20works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf%20%7C%20Aider-purple.svg)](#-works-with)
 
 </div>
 
@@ -28,7 +29,9 @@
 
 ## What It Is
 
-**Super Plan Mode** is an AI coding plugin that generates a rich implementation plan and **halts until you explicitly approve it** before writing a single line of code.
+**Super Plan Mode** is an [OpenClaw](https://openclaw.dev) plugin that generates a rich implementation plan and **halts until you explicitly approve it** before writing a single line of code.
+
+Built natively for OpenClaw and compatible with all major AI coding agents — Claude Code, Codex CLI, Cursor Agent, Windsurf, and Aider.
 
 No passive guardrails. No soft suggestions. A hard stop, a structured plan document, and a numbered menu waiting for your decision.
 
@@ -200,8 +203,11 @@ CLI flags always override config file values.
 
 ## Works With
 
+Built for **OpenClaw** — also compatible with every major AI coding agent.
+
 | Agent | Subagents | Gate | Model Flag | Plan Files |
 |-------|-----------|------|-----------|------------|
+| **OpenClaw** ⭐ | ✅ Parallel | Numbered menu | Full support | `.claude/plans/` |
 | **Claude Code** | ✅ Parallel | Numbered menu | Full support | `.claude/plans/` |
 | **Codex CLI** | ➡️ Inline sequential | Numbered menu | CLI `--model` | Project root |
 | **Cursor Agent** | ➡️ Inline sequential | Numbered menu | Model selector | `.claude/plans/` or root |
@@ -237,7 +243,14 @@ super-plan-mode/
 
 ## Installation
 
-### Claude Code (via plugin marketplace)
+### OpenClaw (native)
+
+```bash
+# Install from GitHub via OpenClaw plugin manager
+/plugins install temikeezy/super-plan-mode
+```
+
+### Claude Code
 
 ```bash
 # Install from GitHub
