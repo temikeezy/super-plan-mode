@@ -96,7 +96,11 @@ Follow the format in `skills/super-plan-mode/references/plan-template.md` exactl
 ```
 Default: `.claude/plans/super-plan-mode-[unix-timestamp].md`
 
-Create the directory if it does not exist. Inform the user: "Plan saved to `[path]`."
+Create the directory if it does not exist. **MANDATORY: Output this line verbatim (fill in actual path):**
+```
+📁 Plan saved to: `[planSaveDir]/super-plan-mode-[unix-timestamp].md`
+```
+This announcement MUST appear before the acceptance gate. Never skip it.
 
 **If `--dry-run`:** After saving, output:
 ```
@@ -121,9 +125,9 @@ Show pre-flight results above the gate.
 
 ### Acceptance Gate
 
-**CRITICAL: DO NOT proceed past this point without explicit user response.**
+**CRITICAL: HALT HERE. DO NOT write any file, run any command, or take any implementation action until the user has explicitly responded to this gate.**
 
-Present the plan (or a link to the saved file), then output this gate exactly:
+Present the plan inline (or reference the saved file path), then output this gate exactly:
 
 ```
 ────────────────────────────────────────────
@@ -137,11 +141,11 @@ Present the plan (or a link to the saved file), then output this gate exactly:
   Enter number (or type the action):
 ```
 
-**Wait. Take no implementation action until the user responds.**
+**STOP. Your next action must be determined entirely by the user's reply. No files. No commands. Wait.**
 
-**Response handling:**
+**Response handling — execute the corresponding action immediately upon receipt:**
 
-- **1** / "accept" / "build" / "yes" / "y" → proceed to Phase 5
+- **1** / "accept" / "build" / "yes" / "y" → proceed to Phase 5 (implementation)
 - **2** / "reject" / "cancel" / "no" / "n" → acknowledge, summarize useful research findings discovered, stop. Do not modify any files.
 - **3** / "modify" / "m" → ask what to change. After revision, show a concise diff of what changed in the plan (sections added, removed, or modified). Re-present the gate.
 - **4** / "phase 1" / "p1" → execute only Phase 1 steps from the plan, then return to the gate for remaining phases. (L/XL only)

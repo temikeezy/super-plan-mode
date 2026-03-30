@@ -62,11 +62,17 @@ Produce the plan document following the format in `references/plan-template.md` 
 Save the plan to: `[planSaveDir]/super-plan-mode-[unix-timestamp].md`
 Default save location: `.claude/plans/super-plan-mode-[timestamp].md`
 
-Inform the user where the plan was saved.
+**MANDATORY: After saving, output this line verbatim (with the actual path filled in):**
+```
+📁 Plan saved to: `.claude/plans/super-plan-mode-[timestamp].md`
+```
+This must appear before the acceptance gate. Never skip it.
 
 ### Step 4: Present the Acceptance Gate
 
-After presenting the plan, output the numbered menu exactly as follows:
+**STOP. After presenting the plan and the save location, you MUST output the gate below. Do NOT proceed to implementation, do NOT write any files, do NOT take any action until the user selects an option.**
+
+Output the numbered menu exactly as follows:
 
 ```
 ────────────────────────────────────────────
@@ -80,15 +86,17 @@ After presenting the plan, output the numbered menu exactly as follows:
   Enter number (or type the action):
 ```
 
-**Wait for the user's response. Take no implementation action until they respond.**
+**HALT HERE. Do not write a single file or run any command until the user replies.**
 
-Response handling:
-- **1 / "accept" / "build" / "yes"** → proceed to implementation
-- **2 / "reject" / "cancel" / "no"** → acknowledge, summarize useful research findings, stop
-- **3 / "modify"** → ask what to change, revise the plan, show a diff of what changed, re-present gate
-- **4 / "phase 1"** → implement only Phase 1 steps, then pause and re-present gate for remaining phases
+Response handling — execute immediately upon receipt:
+- **1 / "accept" / "build" / "yes" / "y"** → proceed to implementation (Step 5)
+- **2 / "reject" / "cancel" / "no" / "n"** → acknowledge, summarize useful research findings, stop; do not modify any files
+- **3 / "modify" / "m"** → ask what to change, revise the plan, show a diff of changed sections, re-present gate
+- **4 / "phase 1" / "p1"** → implement only Phase 1 steps, then pause and re-present gate for remaining phases
 
-### Step 5: Implement (Only After Acceptance)
+### Step 5: Implement (ONLY After User Selects Option 1 or Option 4)
+
+**Do not begin this step unless the user replied "1", "accept", "build", "yes", "y", "4", "phase 1", or "p1" to the gate.**
 
 Execute plan steps in order. For L/XL estimates with phases: after each phase completes, pause and report:
 - What was completed
