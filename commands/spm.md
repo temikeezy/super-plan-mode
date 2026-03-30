@@ -1,6 +1,6 @@
 ---
 description: Shorthand alias for /super-plan-mode. Generates a rich implementation plan with explicit accept/build gate before any code changes.
-argument-hint: [--model provider/model] [--dry-run] [--resume <plan-file>] [--list] <task description>
+argument-hint: "[--model provider/model] [--dry-run] [--resume <plan-file>] [--list] <task description>"
 ---
 
 # SPM (Super Plan Mode)

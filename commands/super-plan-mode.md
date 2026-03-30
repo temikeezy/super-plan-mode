@@ -1,6 +1,6 @@
 ---
-description: Generate a rich implementation plan with explicit accept/build gate. No code changes until you approve. Supports --model provider/model, --dry-run, --resume <file>, and --list.
-argument-hint: [--model provider/model] [--dry-run] [--resume <plan-file>] [--list] <task description>
+description: "Generate a rich implementation plan with explicit accept/build gate. No code changes until you approve. Supports --model provider/model, --dry-run, --resume <file>, and --list."
+argument-hint: "[--model provider/model] [--dry-run] [--resume <plan-file>] [--list] <task description>"
 ---
 
 # Super Plan Mode
