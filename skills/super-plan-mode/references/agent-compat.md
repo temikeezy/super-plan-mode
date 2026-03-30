@@ -26,7 +26,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 **Skill discovery:** OpenClaw scans `.agents/skills/`, `.agent/skills/`, and `.claude/skills/` directories. Place the `super-plan-mode/` folder in any of these and it loads on the next session.
 
-**Exploration:** Full parallel subagent support via OpenClaw's agent orchestration. Launch `plan-researcher` agents in parallel for architecture, affected-files, and risk angles simultaneously.
+**Exploration:** Full parallel subagent support via OpenClaw's agent orchestration. Launch 3 parallel explore agents for architecture, affected-files, and risk angles simultaneously.
 
 **Gate:** Numbered menu in chat. User types `1`, `2`, `3`, or `4`. Full-word alternatives also accepted.
 
@@ -42,7 +42,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 ## Claude Code ⭐ (Native Plugin)
 
-**Exploration:** Full parallel subagent support. Launch 2–3 `plan-researcher` agents simultaneously using the Task tool. Each agent targets a different angle (architecture, affected files, risk). After completion, read all files they identify as critical.
+**Exploration:** Full parallel subagent support. Launch 2–3 parallel `Explore` agents simultaneously. Each agent targets a different angle (architecture, affected files, risk). After completion, read all files they identify as critical.
 
 **Gate:** Numbered menu rendered in chat. User types `1`, `2`, `3`, or `4`. Full-word alternatives also accepted.
 
@@ -56,7 +56,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 ## Cursor Agent
 
-**Exploration:** Full parallel subagent support since Cursor 2.4 (January 2026). Launch 2–3 `plan-researcher` agents in parallel — each runs in its own isolated workspace using git worktrees. Subagents can also spawn their own sub-subagents and run asynchronously, so the parent agent continues while researchers complete.
+**Exploration:** Full parallel subagent support since Cursor 2.4 (January 2026). Launch 2–3 parallel explore agents — each runs in its own isolated workspace using git worktrees. Subagents can also spawn their own sub-subagents and run asynchronously, so the parent agent continues while researchers complete.
 
 **Gate:** Numbered menu in Cursor chat. User types the number. Cursor's built-in "Apply" button can serve as the acceptance trigger for code suggestions — but the numbered gate is the canonical approach.
 
@@ -70,7 +70,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 ## Windsurf (Cascade)
 
-**Exploration:** Full parallel agent support since Wave 13. Launch up to 5 `plan-researcher` agents simultaneously, each in its own pane. Cascade's multi-agent interface lets you monitor them side by side.
+**Exploration:** Full parallel agent support since Wave 13. Launch up to 5 parallel explore agents simultaneously, each in its own pane. Cascade's multi-agent interface lets you monitor them side by side.
 
 **Gate:** Cascade's natural pause-for-review behavior aligns with the numbered gate. Output the numbered menu — Cascade waits for input before continuing.
 
@@ -82,7 +82,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 ## Codex CLI
 
-**Exploration:** Full parallel subagent support via the OpenAI Agents SDK. Define custom `plan-researcher` agents in `~/.codex/agents/` as TOML files with custom instructions and model assignments. Spawn them in parallel for architecture, affected-files, and risk angles simultaneously.
+**Exploration:** Full parallel subagent support via the OpenAI Agents SDK. Spawn parallel explore agents for architecture, affected-files, and risk angles simultaneously.
 
 **Gate:** Numbered menu in chat output. User types the number.
 

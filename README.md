@@ -97,7 +97,7 @@ Clarifies the request. Asks focused questions if anything is ambiguous. Confirms
 
 ### Phase 2 — Explore (Read-Only)
 
-Launches parallel `plan-researcher` agents (where supported) to map the codebase from three angles:
+Launches parallel explore agents (where supported) to map the codebase from three angles:
 
 - **Architecture** — patterns, conventions, existing similar features
 - **Affected Files** — what changes, what depends on it, blast radius
@@ -204,9 +204,6 @@ super-plan-mode/
 ├── commands/
 │   ├── super-plan-mode.md       /super-plan-mode command
 │   └── spm.md                   /spm shorthand alias
-├── agents/
-│   ├── plan-researcher.md       Read-only exploration agent
-│   └── risk-analyzer.md         Git-forensics risk agent
 ├── skills/
 │   └── super-plan-mode/
 │       ├── SKILL.md             Passive trigger skill

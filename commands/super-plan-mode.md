@@ -55,7 +55,7 @@ CLI flags override config file values.
 
 ### Path A — Parallel subagents (OpenClaw, Claude Code, Cursor 2.4+, Windsurf Wave 13+, Codex CLI)
 
-Launch 3 `plan-researcher` agents in parallel. Assign each a distinct focus:
+Launch 3 parallel `Explore` agents. Assign each a distinct focus:
 
 - **Agent 1 — Architecture:** "Map the architecture, abstractions, and existing patterns relevant to [task]. Identify naming conventions, design patterns, and similar features already in the codebase. Return Recommended Reading list."
 - **Agent 2 — Affected Files:** "Trace exactly which files and functions would need to change for [task]. Follow import chains. Map the dependency graph. Return Affected Files table."
@@ -67,7 +67,7 @@ After all agents complete:
 
 ### Path B — Inline sequential (Aider and environments without subagent support)
 
-Perform exploration inline, sequentially. Follow the methodology in `agents/plan-researcher.md`:
+Perform exploration inline, sequentially:
 
 1. **Architecture pass:** Glob and Grep to find entry points, map patterns and conventions, identify similar existing features
 2. **Affected files pass:** Trace call chains from entry points, follow imports, build the affected files list with dependency counts
