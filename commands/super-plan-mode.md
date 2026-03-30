@@ -15,8 +15,8 @@ You are operating in **Super Plan Mode**. Your PRIMARY DIRECTIVE: DO NOT create,
 
 Parse `$ARGUMENTS` for flags before the task description:
 
-- `--model <provider/model>` — model for Phase 5 implementation (e.g., `anthropic/claude-sonnet-4-6`, `openai/gpt-4o`). Shorthand: `sonnet`, `haiku`, `opus`. Default: `anthropic/claude-sonnet-4-6`. Planning agents always use `anthropic/haiku` regardless of this flag.
-- `--provider <name>` — (alternative to slash syntax) set implementation provider separately
+- `--model <provider/model>` — model to use for implementation (e.g., `anthropic/claude-sonnet-4-6`, `openai/gpt-4o`, `ollama/llama3.3`). Optional — omit to use whatever the current environment has active.
+- `--provider <name>` — (alternative to slash syntax) set provider separately
 - `--dry-run` — generate and save plan only; skip gate and implementation
 - `--resume <file>` — load a saved plan file and skip to the acceptance gate (Phase 4)
 - `--list` — list all saved plans in the plan directory and exit
@@ -24,7 +24,6 @@ Parse `$ARGUMENTS` for flags before the task description:
 Check for `.super-plan-mode.json` in the project root. If found, read it and apply defaults:
 ```json
 {
-  "defaultModel": "anthropic/claude-sonnet-4-6",
   "planSaveDir": ".claude/plans",
   "autoPhaseCheckpoints": true,
   "preflightChecks": true
@@ -155,8 +154,7 @@ Present the plan (or a link to the saved file), then output this gate exactly:
 **Only reached after explicit user acceptance in Phase 4.**
 
 1. Mark Phase 4 todo complete.
-2. Note the implementation model: `[parsed --model value or default]`
-3. Execute each step from the accepted plan in order.
+2. Execute each step from the accepted plan in order.
 4. Update TodoWrite after completing each major step.
 5. If a step reveals unexpected complexity or a blocker, pause and report before continuing.
 
@@ -181,9 +179,8 @@ Suggested next steps: [testing, docs, deployment, etc.]
 
 ---
 
-## Token Efficiency Notes
+## Process Efficiency Notes
 
-- Planning agents use `anthropic/haiku` always — fast and cheap for read-only exploration
-- Return structured tables from agents, not prose — lower token count
-- Each agent has a narrow scope — no overlap in what they research
-- References (plan-template, agent-compat) are only loaded when needed, not always in context
+- Each exploration agent has a narrow, non-overlapping scope — architecture, affected files, and risk are researched in parallel without duplication
+- Agents return structured tables, not prose — focused and scannable output
+- References (`plan-template.md`, `agent-compat.md`) are loaded only when needed

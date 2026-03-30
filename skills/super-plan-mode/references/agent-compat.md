@@ -114,7 +114,7 @@ The `--model` flag uses `provider/model` format. Known values:
 
 ### Anthropic
 - `anthropic/claude-opus-4-6`
-- `anthropic/claude-sonnet-4-6` (default)
+- `anthropic/claude-sonnet-4-6`
 - `anthropic/claude-haiku-4-5`
 - Shorthand: `opus`, `sonnet`, `haiku`
 
@@ -143,16 +143,13 @@ The `--model` flag uses `provider/model` format. Known values:
 - `lmstudio/<model-name>` — passthrough (LM Studio local server)
 
 ### Unknown models
-Unrecognized `provider/model` values are accepted as passthrough with a warning:
-> "Note: `provider/model` is not in the known model list. Proceeding — ensure your environment is configured for this model."
+Unrecognized `provider/model` values are accepted as passthrough — ensure your environment is configured for the model you specify.
 
 ---
 
-## Token Efficiency Notes
+## Process Efficiency Notes
 
-Planning agents (`plan-researcher`, `risk-analyzer`) always use `anthropic/haiku` regardless of the `--model` flag. This keeps exploration cheap:
-
-- 3 parallel haiku agents ≈ cost of ~0.3 sonnet calls
-- Each agent returns structured output (not prose) with hard output caps
-- References in `skills/super-plan-mode/references/` are only loaded when needed (not always in context)
-- SKILL.md body is kept under 2,000 words — detailed content stays in `references/`
+- Exploration agents have narrow, non-overlapping scopes — no duplicated research
+- Agents return structured tables, not prose
+- References in `skills/super-plan-mode/references/` are loaded only when needed
+- SKILL.md body stays lean — detailed content lives in `references/`

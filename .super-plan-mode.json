@@ -1,5 +1,4 @@
 {
-  "defaultModel": "anthropic/claude-sonnet-4-6",
   "planSaveDir": ".claude/plans",
   "autoPhaseCheckpoints": true,
   "preflightChecks": true

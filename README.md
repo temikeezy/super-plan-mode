@@ -54,7 +54,7 @@ No passive guardrails. No soft suggestions. A hard stop, a structured plan docum
 - 🌐 **Multi-agent compatible** — works across Claude Code, Codex CLI, Cursor Agent, Windsurf, and Aider
 - 🤖 **Model + provider flag** — `--model provider/model` lets you choose the implementation model from any provider
 - 💨 **Dry-run mode** — `--dry-run` generates and saves the plan without offering to execute
-- ⚡ **Token optimized** — exploration agents use `haiku` by default; structured output keeps costs low
+- ⚡ **Process optimized** — parallel agents with narrow, non-overlapping scopes; structured output keeps results focused
 - ⚙️ **Project config** — `.super-plan-mode.json` sets per-project defaults for model, save path, and checkpoints
 
 ---
@@ -162,28 +162,17 @@ Every implementation step is rated based on how thoroughly it was understood dur
 
 ## Model Flag
 
-Use any model from any provider for implementation:
+Optionally specify any model from any provider. Omit it to use whatever your environment has active.
 
 ```bash
-# Anthropic (default)
 /spm --model anthropic/claude-sonnet-4-6 <task>
-/spm --model sonnet <task>        # shorthand
-
-# OpenAI
 /spm --model openai/gpt-4o <task>
-/spm --model openai/o3 <task>
-
-# Google
 /spm --model google/gemini-2.5-pro <task>
-
-# Local
 /spm --model ollama/llama3.3 <task>
-/spm --model lmstudio/my-model <task>
+/spm --model sonnet <task>   # shorthand for Anthropic models
 ```
 
-> Planning agents always use `anthropic/haiku` regardless of your `--model` flag — keeping exploration fast and cheap.
-
-Unknown model names are accepted as passthrough with a configuration note.
+Any `provider/model` value is accepted as passthrough — ensure your environment is configured for the model you want to use.
 
 ---
 
@@ -193,7 +182,6 @@ Add `.super-plan-mode.json` to your project root to set defaults:
 
 ```json
 {
-  "defaultModel": "anthropic/claude-sonnet-4-6",
   "planSaveDir": ".claude/plans",
   "autoPhaseCheckpoints": true,
   "preflightChecks": true
