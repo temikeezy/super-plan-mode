@@ -54,46 +54,41 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 ---
 
-## Codex CLI
-
-**Exploration:** No subagent support. Run exploration inline sequentially:
-1. Map architecture and patterns (Glob, Grep, Read)
-2. Trace affected files and dependencies
-3. Assess risks and run `git status` / `git log`
-
-Follow the same methodology described in `agents/plan-researcher.md` — that file doubles as the inline research guide.
-
-**Gate:** Numbered menu in chat output. User types the number.
-
-**Model flag:** Codex CLI uses `--model` natively. Pass `provider/model` as the value if the CLI supports it; otherwise pass just the model name. Check your Codex CLI version for exact syntax.
-
-**Plan files:** Saved to the project root as `super-plan-mode-[timestamp].md` (no `.claude/plans/` directory in non-Claude Code environments unless you create it).
-
----
-
 ## Cursor Agent
 
-**Exploration:** Cursor Agent does not support subagent spawning. Use inline sequential exploration following the `plan-researcher` methodology. Cursor's multi-step instruction support handles the phased flow naturally.
+**Exploration:** Full parallel subagent support since Cursor 2.4 (January 2026). Launch 2–3 `plan-researcher` agents in parallel — each runs in its own isolated workspace using git worktrees. Subagents can also spawn their own sub-subagents and run asynchronously, so the parent agent continues while researchers complete.
 
-**Gate:** The numbered menu works in Cursor chat. User types the number. Cursor's built-in "Apply" button can also be used as the acceptance mechanism for code suggestions — but the numbered gate is the canonical approach.
+**Gate:** Numbered menu in Cursor chat. User types the number. Cursor's built-in "Apply" button can serve as the acceptance trigger for code suggestions — but the numbered gate is the canonical approach.
 
-**Model flag:** Set the model via Cursor's model selector (top of chat). The `--model` flag value in the command is advisory — document the requested model in the plan header.
+**Model flag:** Pass `--model provider/model` in the command arguments. Cursor also supports per-subagent model configuration — planning subagents can be explicitly set to a cheaper model.
 
-**Plan files:** Saved to `.claude/plans/` if the directory exists, otherwise to project root. Cursor can open and display the plan markdown file natively.
+**Plan files:** Saved to `.claude/plans/` if the directory exists, otherwise to project root. Cursor renders markdown natively.
 
-**Tip:** Pin the super-plan-mode command in Cursor's rules or AGENTS.md to make it always available.
+**Tip:** Pin the super-plan-mode command in Cursor's `.cursorrules` or `AGENTS.md` to make it always available.
 
 ---
 
 ## Windsurf (Cascade)
 
-**Exploration:** Inline sequential exploration. Windsurf's Cascade model supports multi-step reasoning natively, so the phased exploration flow works without modification.
+**Exploration:** Full parallel agent support since Wave 13. Launch up to 5 `plan-researcher` agents simultaneously, each in its own pane. Cascade's multi-agent interface lets you monitor them side by side.
 
-**Gate:** Cascade's natural pause-for-review behavior aligns well with the numbered gate. Output the numbered menu and Cascade will wait for the user's input before continuing.
+**Gate:** Cascade's natural pause-for-review behavior aligns with the numbered gate. Output the numbered menu — Cascade waits for input before continuing.
 
-**Model flag:** Set via Windsurf's model selector. The `--model` flag is advisory in this environment.
+**Model flag:** Set via Windsurf's model selector or pass `--model` in the command. The flag is documented in the plan header for reference.
 
 **Plan files:** Saved to `.claude/plans/` or project root. Windsurf renders markdown natively in the workspace.
+
+---
+
+## Codex CLI
+
+**Exploration:** Full parallel subagent support via the OpenAI Agents SDK. Define custom `plan-researcher` agents in `~/.codex/agents/` as TOML files with custom instructions and model assignments. Spawn them in parallel for architecture, affected-files, and risk angles simultaneously.
+
+**Gate:** Numbered menu in chat output. User types the number.
+
+**Model flag:** Pass `--model provider/model` to the CLI. Codex natively supports OpenAI models; for other providers use the Agents SDK orchestration layer.
+
+**Plan files:** Saved to the project root as `super-plan-mode-[timestamp].md` (create `.claude/plans/` manually if preferred).
 
 ---
 

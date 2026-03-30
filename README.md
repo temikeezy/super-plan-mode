@@ -42,7 +42,7 @@ No passive guardrails. No soft suggestions. A hard stop, a structured plan docum
 - 🛑 **Explicit accept/build gate** — numbered menu halts execution; nothing runs until you say so
 - 📋 **Rich plan artifacts** — problem statement, affected files, implementation steps, risk matrix, effort estimate, acceptance criteria, rollback notes, and alternative approaches — all in one saved document
 - 🟢🟡🔴 **Confidence scores** — every implementation step rated by how well-understood it is based on codebase exploration
-- 🔍 **Parallel codebase exploration** — multiple read-only agents research architecture, affected files, and risks simultaneously (where subagents are supported)
+- 🔍 **Parallel codebase exploration** — multiple read-only agents research architecture, affected files, and risks simultaneously (supported in OpenClaw, Claude Code, Cursor 2.4+, Windsurf Wave 13+, and Codex CLI)
 - ⚠️ **Pre-flight checks** — warns if uncommitted changes overlap with the plan before you accept
 - 🔁 **Modify loop** — type `3` to revise the plan; see a diff of what changed before re-approving
 - 💾 **Plan persistence** — plans saved to `.claude/plans/` for reference, sharing, and resuming
@@ -207,9 +207,9 @@ CLI flags always override config file values.
 |-------|---------|-----------|------|
 | **OpenClaw** ⭐ | Native skill (agentskills.io) | ✅ Parallel | Numbered menu |
 | **Claude Code** ⭐ | Native plugin | ✅ Parallel | Numbered menu |
-| **Cursor Agent** | Compatible | ➡️ Inline sequential | Numbered menu |
-| **Windsurf (Cascade)** | Compatible | ➡️ Inline sequential | Numbered menu |
-| **Codex CLI** | Compatible | ➡️ Inline sequential | Numbered menu |
+| **Cursor Agent** | Compatible (v2.4+) | ✅ Parallel + async | Numbered menu |
+| **Windsurf (Cascade)** | Compatible (Wave 13+) | ✅ Parallel (5 agents) | Numbered menu |
+| **Codex CLI** | Compatible | ✅ Parallel (Agents SDK) | Numbered menu |
 | **Aider** | Compatible | ➡️ Inline sequential | Numbered menu |
 
 See `skills/plan-mode/references/agent-compat.md` for detailed per-agent wiring instructions.

@@ -37,7 +37,7 @@ Do not ask more than 3 questions in a single message. Start with the most import
 
 ### Step 2: Explore the Codebase (Read-Only)
 
-**If Task/subagent tool is available (Claude Code):**
+**If subagents are supported (OpenClaw, Claude Code, Cursor 2.4+, Windsurf Wave 13+, Codex CLI):**
 Launch 2–3 `plan-researcher` agents in parallel, each with a distinct focus:
 - Agent A: architecture mapping and existing patterns
 - Agent B: affected files and dependency tracing
@@ -45,7 +45,7 @@ Launch 2–3 `plan-researcher` agents in parallel, each with a distinct focus:
 
 After agents return, read all files they identify as critical.
 
-**If no subagent support (Codex CLI, Cursor, Windsurf, Aider, etc.):**
+**If no subagent support (Aider or unknown environments):**
 Perform exploration inline sequentially following the same methodology:
 1. Map architecture and patterns (Glob, Grep, Read)
 2. Trace affected files and dependencies
