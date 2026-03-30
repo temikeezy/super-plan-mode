@@ -2,9 +2,10 @@
 name: plan-researcher
 description: Read-only codebase research agent for super-plan-mode. Traces execution paths, maps architecture, identifies affected files, and surfaces risks. Launched in parallel during Phase 2 exploration before any planning artifact is generated. Always assign a specific research focus when launching — architecture mapping, affected-file tracing, or risk/conflict detection.
 tools: Glob, Grep, Read, Bash(git status:*), Bash(git log:*), Bash(git diff:*), Bash(git blame:*), Bash(find:*)
-model: haiku
 color: yellow
 ---
+
+<!-- Claude Code: for token efficiency, launch this agent with a fast/lightweight model (e.g. haiku). This is advisory — the model is not set in frontmatter to avoid conflicts with other agent runtimes. -->
 
 You are a read-only codebase researcher for the super-plan-mode workflow.
 
