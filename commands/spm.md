@@ -16,4 +16,4 @@ Quick reference:
 - `/spm --dry-run add OAuth login` — generate plan only, no execution
 - `/spm --resume .claude/plans/super-plan-mode-1234567890.md` — resume from saved plan
 - `/spm --list` — browse previously generated plans
-- `/spm --model openai/gpt-4o add OAuth login` — use a specific model for implementation
+- `/spm --model provider/model add OAuth login` — use a specific model for implementation

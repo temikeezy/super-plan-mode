@@ -15,8 +15,7 @@ You are operating in **Super Plan Mode**. Your PRIMARY DIRECTIVE: DO NOT create,
 
 Parse `$ARGUMENTS` for flags before the task description:
 
-- `--model <provider/model>` — model to use for implementation (e.g., `anthropic/claude-sonnet-4-6`, `openai/gpt-4o`, `ollama/llama3.3`). Optional — omit to use whatever the current environment has active.
-- `--provider <name>` — (alternative to slash syntax) set provider separately
+- `--model <provider/model>` — model to use for implementation. Optional — omit to use whatever the current environment has active.
 - `--dry-run` — generate and save plan only; skip gate and implementation
 - `--resume <file>` — load a saved plan file and skip to the acceptance gate (Phase 4)
 - `--list` — list all saved plans in the plan directory and exit

@@ -55,7 +55,7 @@ No passive guardrails. No soft suggestions. A hard stop, a structured plan docum
 - 🤖 **Model + provider flag** — `--model provider/model` lets you choose the implementation model from any provider
 - 💨 **Dry-run mode** — `--dry-run` generates and saves the plan without offering to execute
 - ⚡ **Process optimized** — parallel agents with narrow, non-overlapping scopes; structured output keeps results focused
-- ⚙️ **Project config** — `.super-plan-mode.json` sets per-project defaults for model, save path, and checkpoints
+- ⚙️ **Project config** — `.super-plan-mode.json` sets per-project defaults for save path and checkpoints
 
 ---
 
@@ -78,9 +78,7 @@ No passive guardrails. No soft suggestions. A hard stop, a structured plan docum
 /spm --list
 
 # Choose implementation model
-/spm --model openai/gpt-4o add a caching layer
-/spm --model anthropic/claude-opus-4-6 redesign the API router
-/spm --model ollama/llama3.3 add input validation
+/spm --model provider/model add a caching layer
 ```
 
 Or trigger passively — just tell the agent:
@@ -162,17 +160,7 @@ Every implementation step is rated based on how thoroughly it was understood dur
 
 ## Model Flag
 
-Optionally specify any model from any provider. Omit it to use whatever your environment has active.
-
-```bash
-/spm --model anthropic/claude-sonnet-4-6 <task>
-/spm --model openai/gpt-4o <task>
-/spm --model google/gemini-2.5-pro <task>
-/spm --model ollama/llama3.3 <task>
-/spm --model sonnet <task>   # shorthand for Anthropic models
-```
-
-Any `provider/model` value is accepted as passthrough — ensure your environment is configured for the model you want to use.
+Use `--model provider/model` to specify which model runs the implementation. Omit it to use whatever your environment has active. Any `provider/model` value is accepted as passthrough — ensure your environment is configured for the model you want to use.
 
 ---
 

@@ -30,7 +30,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 **Gate:** Numbered menu in chat. User types `1`, `2`, `3`, or `4`. Full-word alternatives also accepted.
 
-**Model flag:** `--model provider/model` parsed and applied to implementation. Planning agents always use `anthropic/haiku` regardless.
+**Model flag:** `--model provider/model` parsed and applied to implementation.
 
 **Plan files:** Saved to `.agents/plans/super-plan-mode-[timestamp].md` (or `.claude/plans/` — either works). Use `--list` to browse, `--resume <file>` to reload.
 
@@ -46,7 +46,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 **Gate:** Numbered menu rendered in chat. User types `1`, `2`, `3`, or `4`. Full-word alternatives also accepted.
 
-**Model flag:** `--model provider/model` is parsed and the implementation model is set accordingly. Planning agents (`plan-researcher`, `risk-analyzer`) always use `anthropic/haiku` regardless of the user flag.
+**Model flag:** `--model provider/model` is parsed and the implementation model is set accordingly.
 
 **Plan files:** Saved to `.claude/plans/super-plan-mode-[timestamp].md` in the project root. Use `--list` to browse saved plans. Use `--resume <file>` to reload and execute a previously generated plan.
 
@@ -60,7 +60,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 **Gate:** Numbered menu in Cursor chat. User types the number. Cursor's built-in "Apply" button can serve as the acceptance trigger for code suggestions — but the numbered gate is the canonical approach.
 
-**Model flag:** Pass `--model provider/model` in the command arguments. Cursor also supports per-subagent model configuration — planning subagents can be explicitly set to a cheaper model.
+**Model flag:** Pass `--model provider/model` in the command arguments.
 
 **Plan files:** Saved to `.claude/plans/` if the directory exists, otherwise to project root. Cursor renders markdown natively.
 
@@ -102,48 +102,9 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 3. Review the plan file
 4. Re-run Aider (without `--dry-run`) with `--message "Resume from plan: .claude/plans/super-plan-mode-[timestamp].md"` to execute
 
-**Model flag:** Pass `--model provider/model` to Aider's CLI directly. Aider has native multi-provider model support (OpenAI, Anthropic, Google, Ollama, etc.).
+**Model flag:** Pass `--model provider/model` to Aider's CLI directly.
 
 **Plan files:** Saved to project root. Use `/add super-plan-mode-[timestamp].md` to bring the plan into Aider's context for execution.
-
----
-
-## Model / Provider Reference
-
-The `--model` flag uses `provider/model` format. Known values:
-
-### Anthropic
-- `anthropic/claude-opus-4-6`
-- `anthropic/claude-sonnet-4-6`
-- `anthropic/claude-haiku-4-5`
-- Shorthand: `opus`, `sonnet`, `haiku`
-
-### OpenAI
-- `openai/gpt-4o`
-- `openai/gpt-4o-mini`
-- `openai/o3`
-- `openai/o4-mini`
-
-### Google
-- `google/gemini-2.5-pro`
-- `google/gemini-2.5-flash`
-- `google/gemini-2.0-flash`
-
-### Mistral
-- `mistral/mistral-large`
-- `mistral/mistral-small`
-
-### Groq
-- `groq/llama-3.3-70b`
-- `groq/deepseek-r1-distill-llama-70b`
-
-### Local / Self-hosted
-- `ollama/<model-name>` — passthrough (any locally running Ollama model)
-- `bedrock/<model-id>` — passthrough (AWS Bedrock)
-- `lmstudio/<model-name>` — passthrough (LM Studio local server)
-
-### Unknown models
-Unrecognized `provider/model` values are accepted as passthrough — ensure your environment is configured for the model you specify.
 
 ---
 
