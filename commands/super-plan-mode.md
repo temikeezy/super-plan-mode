@@ -83,7 +83,7 @@ Read all critical files identified before proceeding to Phase 3.
 
 Using all research from Phase 2, generate the implementation plan.
 
-Follow the format in `skills/plan-mode/references/plan-template.md` exactly. Every section is required unless marked N/A with a reason.
+Follow the format in `skills/super-plan-mode/references/plan-template.md` exactly. Every section is required unless marked N/A with a reason.
 
 **Key requirements:**
 - Assign a confidence score (🟢🟡🔴) to each implementation step

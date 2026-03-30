@@ -1,10 +1,16 @@
 ---
-name: plan-mode
-description: This skill should be used when the user asks to "plan this before coding", "don't code yet just plan", "show me the plan first", "think through the approach", "design this first", "before you do anything show me a plan", "enter plan mode", "plan mode on", "let's plan", "what's your plan", "run me through your plan", "hold on, plan first", "I want to see the plan before you start", or expresses any intent to review and approve an implementation approach before execution begins.
-version: 1.0.0
+name: super-plan-mode
+description: This skill should be used when the user asks to "plan this before coding", "don't code yet just plan", "show me the plan first", "think through the approach", "design this first", "before you do anything show me a plan", "enter plan mode", "super plan mode", "plan mode on", "let's plan", "what's your plan", "run me through your plan", "hold on, plan first", "I want to see the plan before you start", or expresses any intent to review and approve an implementation approach before execution begins.
+license: MIT
+metadata:
+  author: temikeezy
+  version: "1.0.0"
+  organization: openclaw
+  date: March 2026
+  abstract: Super Plan Mode is a structured planning skill that generates a rich implementation plan — with affected files, confidence-scored steps, risk matrix, effort estimate, and alternative approaches — then halts execution at a numbered acceptance gate until the user explicitly approves. Works natively in OpenClaw and compatibly across Claude Code, Codex CLI, Cursor Agent, Windsurf, and Aider.
 ---
 
-# Plan Mode Skill
+# Super Plan Mode Skill
 
 This skill activates Super Plan Mode: a structured planning workflow that generates a rich implementation plan and halts for explicit user approval before any code changes are made.
 
@@ -13,7 +19,7 @@ This skill activates Super Plan Mode: a structured planning workflow that genera
 When this skill is active:
 
 1. DO NOT create, edit, or delete any files until the user has explicitly approved the plan.
-2. Announce plan mode immediately: "Entering plan mode. I will generate a plan and wait for your approval before making any changes."
+2. Announce plan mode immediately: "Entering super plan mode. I will generate a plan and wait for your approval before making any changes."
 3. Run the full planning workflow described below.
 4. Present the numbered acceptance gate and wait.
 

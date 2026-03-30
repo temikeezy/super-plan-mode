@@ -29,9 +29,9 @@
 
 ## What It Is
 
-**Super Plan Mode** is an [OpenClaw](https://openclaw.dev) plugin that generates a rich implementation plan and **halts until you explicitly approve it** before writing a single line of code.
+**Super Plan Mode** is an [OpenClaw](https://openclaw.dev) skill that generates a rich implementation plan and **halts until you explicitly approve it** before writing a single line of code.
 
-Built natively for OpenClaw and compatible with all major AI coding agents — Claude Code, Codex CLI, Cursor Agent, Windsurf, and Aider.
+Built natively as an [Agent Skills Open Standard](https://agentskills.io) skill for OpenClaw. Also ships as a Claude Code plugin and works with Cursor Agent, Windsurf, Codex CLI, and Aider.
 
 No passive guardrails. No soft suggestions. A hard stop, a structured plan document, and a numbered menu waiting for your decision.
 
@@ -203,16 +203,14 @@ CLI flags always override config file values.
 
 ## Works With
 
-Built for **OpenClaw** — also compatible with every major AI coding agent.
-
-| Agent | Subagents | Gate | Model Flag | Plan Files |
-|-------|-----------|------|-----------|------------|
-| **OpenClaw** ⭐ | ✅ Parallel | Numbered menu | Full support | `.claude/plans/` |
-| **Claude Code** | ✅ Parallel | Numbered menu | Full support | `.claude/plans/` |
-| **Codex CLI** | ➡️ Inline sequential | Numbered menu | CLI `--model` | Project root |
-| **Cursor Agent** | ➡️ Inline sequential | Numbered menu | Model selector | `.claude/plans/` or root |
-| **Windsurf (Cascade)** | ➡️ Inline sequential | Numbered menu | Model selector | `.claude/plans/` or root |
-| **Aider** | ➡️ Inline sequential | Numbered menu | CLI `--model` | Project root |
+| Agent | Support | Subagents | Gate |
+|-------|---------|-----------|------|
+| **OpenClaw** ⭐ | Native skill (agentskills.io) | ✅ Parallel | Numbered menu |
+| **Claude Code** ⭐ | Native plugin | ✅ Parallel | Numbered menu |
+| **Cursor Agent** | Compatible | ➡️ Inline sequential | Numbered menu |
+| **Windsurf (Cascade)** | Compatible | ➡️ Inline sequential | Numbered menu |
+| **Codex CLI** | Compatible | ➡️ Inline sequential | Numbered menu |
+| **Aider** | Compatible | ➡️ Inline sequential | Numbered menu |
 
 See `skills/plan-mode/references/agent-compat.md` for detailed per-agent wiring instructions.
 
@@ -231,7 +229,7 @@ super-plan-mode/
 │   ├── plan-researcher.md       Read-only exploration agent
 │   └── risk-analyzer.md         Git-forensics risk agent
 ├── skills/
-│   └── plan-mode/
+│   └── super-plan-mode/
 │       ├── SKILL.md             Passive trigger skill
 │       └── references/
 │           ├── plan-template.md Canonical plan format
@@ -243,33 +241,39 @@ super-plan-mode/
 
 ## Installation
 
-### OpenClaw (native)
+### OpenClaw (native skill)
+
+Drop `skills/super-plan-mode/` into your project's `.agents/skills/` directory:
 
 ```bash
-# Install from GitHub via OpenClaw plugin manager
-/plugins install temikeezy/super-plan-mode
+# Via OpenClaw skill manager
+/skills install temikeezy/super-plan-mode
+
+# Or manually
+cp -r skills/super-plan-mode /your-project/.agents/skills/super-plan-mode
 ```
 
-### Claude Code
+The skill is [Agent Skills Open Standard](https://agentskills.io) compatible — it loads automatically when OpenClaw scans the `.agents/skills/` directory.
+
+### Claude Code (native plugin)
 
 ```bash
 # Install from GitHub
 /plugins install temikeezy/super-plan-mode
 ```
 
-### Manual installation
+### Manual (any agent)
+
+Clone the repo and copy the command file into your project's `AGENTS.md`, `CLAUDE.md`, or equivalent system prompt file:
 
 ```bash
-# Clone into your Claude Code plugins directory
-git clone https://github.com/temikeezy/super-plan-mode \
-  ~/.claude/plugins/super-plan-mode
-
-# Restart Claude Code — commands and skill load automatically
+git clone https://github.com/temikeezy/super-plan-mode
+# Then paste commands/super-plan-mode.md into your agent config
 ```
 
-### Local project (any agent)
+### Cursor / Windsurf / Aider
 
-Copy `commands/super-plan-mode.md` content into your project's `AGENTS.md`, `CLAUDE.md`, or equivalent system prompt file.
+Copy the content of `commands/super-plan-mode.md` into your project rules file (`.cursorrules`, `AGENTS.md`, Windsurf system prompt, or Aider `CONVENTIONS.md`). The workflow and gate operate entirely through text instructions.
 
 ---
 
@@ -277,7 +281,7 @@ Copy `commands/super-plan-mode.md` content into your project's `AGENTS.md`, `CLA
 
 Issues and pull requests welcome at [github.com/temikeezy/super-plan-mode](https://github.com/temikeezy/super-plan-mode).
 
-To add a new agent environment to the compatibility guide, open a PR editing `skills/plan-mode/references/agent-compat.md`.
+To add a new agent environment to the compatibility guide, open a PR editing `skills/super-plan-mode/references/agent-compat.md`.
 
 ---
 

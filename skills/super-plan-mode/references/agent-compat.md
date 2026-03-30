@@ -20,7 +20,27 @@ Regardless of agent environment, the flow is always:
 
 ---
 
-## Claude Code
+## OpenClaw ⭐ (Native)
+
+Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.io) skill for OpenClaw. Drop `skills/super-plan-mode/` into your project's `.agents/skills/` directory and it is discovered automatically.
+
+**Skill discovery:** OpenClaw scans `.agents/skills/`, `.agent/skills/`, and `.claude/skills/` directories. Place the `super-plan-mode/` folder in any of these and it loads on the next session.
+
+**Exploration:** Full parallel subagent support via OpenClaw's agent orchestration. Launch `plan-researcher` agents in parallel for architecture, affected-files, and risk angles simultaneously.
+
+**Gate:** Numbered menu in chat. User types `1`, `2`, `3`, or `4`. Full-word alternatives also accepted.
+
+**Model flag:** `--model provider/model` parsed and applied to implementation. Planning agents always use `anthropic/haiku` regardless.
+
+**Plan files:** Saved to `.agents/plans/super-plan-mode-[timestamp].md` (or `.claude/plans/` — either works). Use `--list` to browse, `--resume <file>` to reload.
+
+**Config file:** `.super-plan-mode.json` in the project root. User flags override config values.
+
+**SKILL.md metadata:** The skill follows the full Agent Skills Open Standard frontmatter — `name`, `description`, `license`, and `metadata` block (author, version, organization, date, abstract) — ensuring compatibility with OpenClaw's skill registry and hash verification.
+
+---
+
+## Claude Code ⭐ (Native Plugin)
 
 **Exploration:** Full parallel subagent support. Launch 2–3 `plan-researcher` agents simultaneously using the Task tool. Each agent targets a different angle (architecture, affected files, risk). After completion, read all files they identify as critical.
 
@@ -139,5 +159,5 @@ Planning agents (`plan-researcher`, `risk-analyzer`) always use `anthropic/haiku
 
 - 3 parallel haiku agents ≈ cost of ~0.3 sonnet calls
 - Each agent returns structured output (not prose) with hard output caps
-- References in `skills/plan-mode/references/` are only loaded when needed (not always in context)
+- References in `skills/super-plan-mode/references/` are only loaded when needed (not always in context)
 - SKILL.md body is kept under 2,000 words — detailed content stays in `references/`
