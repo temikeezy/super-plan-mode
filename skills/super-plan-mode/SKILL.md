@@ -1,6 +1,6 @@
 ---
 name: super-plan-mode
-description: This skill should be used when the user asks to "plan this before coding", "don't code yet just plan", "show me the plan first", "think through the approach", "design this first", "before you do anything show me a plan", "enter plan mode", "super plan mode", "plan mode on", "let's plan", "what's your plan", "run me through your plan", "hold on, plan first", "I want to see the plan before you start", or expresses any intent to review and approve an implementation approach before execution begins.
+description: This skill should be used only when the user explicitly mentions "super plan mode", "spm", "use super plan", "run super plan mode", "activate super plan", or directly invokes /super-plan-mode or /spm. Do NOT trigger for generic planning phrases like "plan this", "show me the plan", "think through the approach", or "plan before coding" — those should be handled by the agent's built-in plan mode.
 license: MIT
 metadata:
   author: temikeezy
