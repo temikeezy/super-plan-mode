@@ -1,0 +1,161 @@
+# Plan Template
+
+Every super-plan-mode output MUST follow this structure exactly. Do not omit sections — mark them `N/A` with a one-line reason only if they genuinely do not apply.
+
+---
+
+# Implementation Plan: [Short Title]
+
+**Generated:** [ISO 8601 timestamp]
+**Saved to:** `.claude/plans/super-plan-mode-[timestamp].md`
+**Effort Estimate:** [S / M / L / XL]
+**Risk Level:** [Low / Medium / High]
+**Model:** [provider/model used for implementation]
+
+---
+
+## Problem Statement
+
+One paragraph. What is the current situation? What is broken, missing, or needs improvement? Be specific and concrete.
+
+## Goal
+
+One to three sentences. What will be true after this implementation is complete? Write as a verifiable outcome, not a description of work to be done.
+
+---
+
+## Affected Files
+
+| File | Change Type | Reason |
+|------|------------|--------|
+| `src/auth/AuthService.ts` | Modify | Add OAuth provider lookup method |
+| `src/routes/auth.ts` | Modify | Add OAuth callback route |
+| `src/config/oauth.ts` | Create | New OAuth configuration schema |
+| `tests/auth/oauth.test.ts` | Create | Test new OAuth flows |
+
+Change types: `Create` / `Modify` / `Delete` / `Rename`
+
+---
+
+## Implementation Steps
+
+Steps are numbered and ordered. Each is independently completable. Sub-steps use letters.
+Each step includes a **confidence score** based on exploration findings.
+
+**Step 1: [Step Name]** 🟢 High confidence
+- 1a. [specific action with file path]
+- 1b. [specific action with file path]
+- Expected outcome: [what should be verifiably true after this step]
+
+**Step 2: [Step Name]** 🟡 Medium confidence
+- 2a. [specific action]
+- 2b. [specific action]
+- Expected outcome: [what should be verifiably true after this step]
+- ⚠️ Note: [uncertainty or risk specific to this step]
+
+**Step 3: [Step Name]** 🔴 Low confidence
+- 3a. [specific action]
+- Expected outcome: [what should be verifiably true after this step]
+- ⚠️ Recommend: [additional discovery or research before executing this step]
+
+[Continue for all steps]
+
+### Confidence Scale
+
+- 🟢 **High** — well-understood, clear file paths identified, existing patterns to follow
+- 🟡 **Medium** — some uncertainty; may need additional discovery during implementation
+- 🔴 **Low** — significant unknowns; recommend reviewing this step carefully before accepting
+
+---
+
+## Risk Assessment
+
+**Overall Risk: [Low / Medium / High]**
+
+Justification: [2-3 sentences explaining the overall rating based on factors like blast radius, reversibility, and coupling]
+
+**Risk Matrix:**
+
+| Risk | Level | Mitigation |
+|------|-------|-----------|
+| Modifying AuthService may affect existing token validation | Medium | Read all existing token tests before modifying; run tests after each sub-step |
+| New OAuth state introduces session state changes | Low | Use existing session abstraction; no new storage mechanism needed |
+| Database schema changes | High | Create migration with rollback; test on staging before production |
+
+---
+
+## Effort Estimate
+
+**Rating: [S / M / L / XL]**
+
+| Size | Time | Files | Complexity |
+|------|------|-------|-----------|
+| S (Small) | < 1 hour | < 5 files | Well-understood, clear scope |
+| M (Medium) | 1–4 hours | 5–15 files | Moderate complexity |
+| L (Large) | 4–16 hours | 15+ files | Significant complexity or unknowns |
+| XL (Extra Large) | Multi-day | Architectural | High uncertainty, cross-cutting |
+
+**Reasoning:** [2-3 sentences justifying the estimate based on scope and unknowns]
+
+---
+
+## Acceptance Criteria
+
+Verifiable checklist. Each item should be independently testable.
+
+- [ ] [Specific behavior that should work]
+- [ ] [Specific behavior that should work]
+- [ ] Existing tests still pass
+- [ ] New tests cover the changed code paths
+- [ ] No regressions in [related feature]
+
+---
+
+## Rollback Notes
+
+> Required for Medium and High risk plans. Optional for Low risk.
+
+To revert this change:
+1. [Specific rollback step]
+2. [Specific rollback step]
+
+**Irreversible operations:** [List any operations that cannot be undone — database migrations, published API changes, deleted files, sent notifications, etc. If none, state "None."]
+
+---
+
+## Alternative Approaches
+
+At least one alternative to the primary approach must be documented.
+
+### Alternative A: [Approach Name]
+
+**Summary:** [1-2 sentence description]
+
+**Trade-offs vs. primary:**
+- ✅ Pro: [advantage]
+- ✅ Pro: [advantage]
+- ❌ Con: [disadvantage]
+- ❌ Con: [disadvantage]
+
+**Why primary was chosen:** [1-2 sentences]
+
+---
+
+## Phases
+
+> Required for L and XL estimates. Skip for S and M.
+
+Break implementation into independently verifiable phases. Each phase ends with a checkpoint — execution pauses for user confirmation before the next phase begins.
+
+**Phase 1: [Name]** — Steps 1–3
+Checkpoint: [What should be demonstrably working after Phase 1]
+
+**Phase 2: [Name]** — Steps 4–6
+Checkpoint: [What should be demonstrably working after Phase 2]
+
+**Phase 3: [Name]** — Steps 7–9
+Checkpoint: [What should be demonstrably working after Phase 3]
+
+---
+
+*Generated by super-plan-mode. Awaiting user acceptance before implementation begins.*
