@@ -158,8 +158,8 @@ Present the plan inline (or reference the saved file path), then output this gat
 
 1. Mark Phase 4 todo complete.
 2. Execute each step from the accepted plan in order.
-4. Update TodoWrite after completing each major step.
-5. If a step reveals unexpected complexity or a blocker, pause and report before continuing.
+3. Update TodoWrite after completing each major step.
+4. If a step reveals unexpected complexity or a blocker, pause and report before continuing.
 
 **For L/XL plans with phases:**
 After completing each phase, pause and output a checkpoint report:
