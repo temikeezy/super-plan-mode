@@ -36,6 +36,8 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 **Config file:** `.super-plan-mode.json` in the project root. User flags override config values.
 
+**Slash command autocomplete:** The skill includes a `commands/` directory (`commands/super-plan-mode.md` and `commands/spm.md`). OpenClaw reads these when the skill loads and registers `/super-plan-mode` and `/spm` in the `/` autocomplete dropdown. Both commands appear with their description and argument hint as soon as the skill is installed.
+
 **SKILL.md metadata:** The skill follows the full Agent Skills Open Standard frontmatter — `name`, `description`, `license`, and `metadata` block (author, version, organization, date, abstract) — ensuring compatibility with OpenClaw's skill registry and hash verification.
 
 ---

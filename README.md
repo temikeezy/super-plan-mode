@@ -207,6 +207,9 @@ super-plan-mode/
 ├── skills/
 │   └── super-plan-mode/
 │       ├── SKILL.md             Passive trigger skill
+│       ├── commands/
+│       │   ├── super-plan-mode.md   /super-plan-mode (OpenClaw autocomplete)
+│       │   └── spm.md               /spm shorthand (OpenClaw autocomplete)
 │       └── references/
 │           ├── plan-template.md Canonical plan format
 │           └── agent-compat.md  Multi-agent guide
