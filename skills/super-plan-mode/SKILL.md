@@ -91,7 +91,7 @@ Output the numbered menu exactly as follows:
 Response handling — execute immediately upon receipt:
 - **1 / "accept" / "build" / "yes" / "y"** → proceed to implementation (Step 5)
 - **2 / "reject" / "cancel" / "no" / "n"** → acknowledge, summarize useful research findings, stop; do not modify any files
-- **3 / "modify" / "m"** → ask what to change, revise the plan, show a diff of changed sections, re-present gate
+- **3 / "modify" / "m"** → ask what to change, revise the plan, save the updated plan as a new timestamped file (do not overwrite original), show a diff of changed sections, announce new save path, re-present gate
 - **4 / "phase 1" / "p1"** → implement only Phase 1 steps, then pause and re-present gate for remaining phases
 
 ### Step 5: Implement (ONLY After User Selects Option 1 or Option 4)

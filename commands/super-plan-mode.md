@@ -15,7 +15,7 @@ You are operating in **Super Plan Mode**. Your PRIMARY DIRECTIVE: DO NOT create,
 
 Parse `$ARGUMENTS` for flags before the task description:
 
-- `--model <provider/model>` — model to use for implementation. Optional — omit to use whatever the current environment has active.
+- `--model <provider/model>` — model to use for the implementation phase only. Useful when you want to plan with a more capable model and build with a faster one (e.g. plan with Opus, build with Sonnet). The value is recorded in the plan header. If omitted, implementation uses the current active model.
 - `--dry-run` — generate and save plan only; skip gate and implementation
 - `--resume <file>` — load a saved plan file and skip to the acceptance gate (Phase 4)
 - `--list` — list all saved plans in the plan directory and exit
@@ -30,7 +30,19 @@ Check for `.super-plan-mode.json` in the project root. If found, read it and app
 ```
 CLI flags override config file values.
 
-**If `--list`:** Run `ls -la [planSaveDir]/super-plan-mode-*.md 2>/dev/null`, display the results as a formatted table with filename, title (first `#` heading), date, and size. Exit after displaying.
+**If `--list`:** Find all files matching `[planSaveDir]/super-plan-mode-*.md`. If none exist, print "No saved plans found in [planSaveDir]." and exit. For each file found, read it and extract:
+- **Title:** text after `# Implementation Plan:` on the first such line
+- **Effort:** value on the `**Effort Estimate:**` header line
+- **Risk:** value on the `**Risk Level:**` header line
+- **Generated:** value on the `**Generated:**` header line
+
+Display as a markdown table, sorted newest first:
+
+| # | Generated | Title | Effort | Risk | File |
+|---|-----------|-------|--------|------|------|
+| 1 | 2026-04-09 14:32 | Add OAuth login | M | Medium | `.claude/plans/super-plan-mode-1744209120.md` |
+
+Exit after displaying.
 
 **If `--resume <file>`:** Load the specified plan file, display it in full, then skip directly to Phase 4.
 
@@ -147,7 +159,7 @@ Present the plan inline (or reference the saved file path), then output this gat
 
 - **1** / "accept" / "build" / "yes" / "y" → proceed to Phase 5 (implementation)
 - **2** / "reject" / "cancel" / "no" / "n" → acknowledge, summarize useful research findings discovered, stop. Do not modify any files.
-- **3** / "modify" / "m" → ask what to change. After revision, show a concise diff of what changed in the plan (sections added, removed, or modified). Re-present the gate.
+- **3** / "modify" / "m" → ask what to change. After revision, save the updated plan as a **new file** (`[planSaveDir]/super-plan-mode-[new-unix-timestamp].md`) — do not overwrite the original. Show a concise diff of what changed (sections added, removed, or modified) and announce the new save path. Re-present the gate.
 - **4** / "phase 1" / "p1" → execute only Phase 1 steps from the plan, then return to the gate for remaining phases. (L/XL only)
 
 ---
