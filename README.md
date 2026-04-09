@@ -191,7 +191,7 @@ CLI flags always override config file values.
 | **Codex CLI** | Compatible | ✅ Parallel (Agents SDK) | Numbered menu |
 | **Aider** | Compatible | ➡️ Inline sequential | Numbered menu |
 
-See `skills/plan-mode/references/agent-compat.md` for detailed per-agent wiring instructions.
+See `skills/super-plan-mode/references/agent-compat.md` for detailed per-agent wiring instructions.
 
 ---
 
