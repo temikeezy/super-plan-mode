@@ -1,6 +1,12 @@
 {
   "name": "super-plan-mode",
+  "version": "1.0.0",
   "description": "A universal agent skill for structured plan mode. Built natively for OpenClaw and Claude Code — generates a rich plan artifact with risk assessment, confidence scores, affected files, and alternatives, then halts at an explicit accept/build gate until you approve. Also works with Cursor, Windsurf, Codex CLI, Aider, and more.",
+  "homepage": "https://github.com/temikeezy/super-plan-mode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/temikeezy/super-plan-mode.git"
+  },
   "author": {
     "name": "openclaw",
     "email": "plugins@openclaw.dev"

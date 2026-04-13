@@ -56,7 +56,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 ## Cursor Agent
 
-**Exploration:** Full parallel subagent support since Cursor 2.4 (January 2026). Launch 2–3 parallel explore agents — each runs in its own isolated workspace using git worktrees. Subagents can also spawn their own sub-subagents and run asynchronously, so the parent agent continues while researchers complete.
+**Exploration:** Cursor Agent supports parallel subagents. Launch 2–3 `plan-researcher` agents in parallel — each runs in its own isolated workspace using git worktrees. Subagents can also spawn their own sub-subagents and run asynchronously, so the parent agent continues while researchers complete. If your Cursor version does not support parallel agents, fall back to Path B (inline sequential) from the SKILL.md workflow.
 
 **Gate:** Numbered menu in Cursor chat. User types the number. Cursor's built-in "Apply" button can serve as the acceptance trigger for code suggestions — but the numbered gate is the canonical approach.
 
@@ -70,7 +70,7 @@ Super-plan-mode is built as an [Agent Skills Open Standard](https://agentskills.
 
 ## Windsurf (Cascade)
 
-**Exploration:** Full parallel agent support since Wave 13. Launch up to 5 parallel explore agents simultaneously, each in its own pane. Cascade's multi-agent interface lets you monitor them side by side.
+**Exploration:** Windsurf Cascade supports parallel agents. Launch up to 5 `plan-researcher` agents simultaneously, each in its own pane. Cascade's multi-agent interface lets you monitor them side by side. If your Windsurf version does not support parallel agents, fall back to Path B (inline sequential) from the SKILL.md workflow.
 
 **Gate:** Cascade's natural pause-for-review behavior aligns with the numbered gate. Output the numbered menu — Cascade waits for input before continuing.
 

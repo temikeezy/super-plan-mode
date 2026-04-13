@@ -37,8 +37,8 @@ Do not ask more than 3 questions in a single message. Start with the most import
 
 ### Step 2: Explore the Codebase (Read-Only)
 
-**If subagents are supported (OpenClaw, Claude Code, Cursor 2.4+, Windsurf Wave 13+, Codex CLI):**
-Launch 2–3 parallel `Explore` agents, each with a distinct focus:
+**If subagents are supported (OpenClaw, Claude Code, Cursor Agent, Windsurf Cascade, Codex CLI):**
+Launch 2–3 `plan-researcher` agents in parallel, each with a distinct focus:
 - Agent A: architecture mapping and existing patterns
 - Agent B: affected files and dependency tracing
 - Agent C: risks, uncommitted changes, and fragile areas
